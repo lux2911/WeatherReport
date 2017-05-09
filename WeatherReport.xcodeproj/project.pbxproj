@@ -16,6 +16,7 @@
 		D56D2BE11EC123430019F018 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D56D2BE01EC123430019F018 /* HomeViewController.m */; };
 		D56D2BE41EC123E00019F018 /* BookMarksTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D56D2BE31EC123E00019F018 /* BookMarksTableViewCell.m */; };
 		D56D2BE81EC1252B0019F018 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = D56D2BE71EC1252B0019F018 /* Place.m */; };
+		D5FC289B1EC26040002E7B03 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC289A1EC26040002E7B03 /* DataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		D56D2BE31EC123E00019F018 /* BookMarksTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookMarksTableViewCell.m; sourceTree = "<group>"; };
 		D56D2BE61EC1252B0019F018 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
 		D56D2BE71EC1252B0019F018 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		D5FC28991EC26040002E7B03 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		D5FC289A1EC26040002E7B03 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,7 @@
 		D56D2BB51EC120150019F018 /* WeatherReport */ = {
 			isa = PBXGroup;
 			children = (
+				D5FC28981EC26002002E7B03 /* Managers */,
 				D56D2BE51EC1250B0019F018 /* Models */,
 				D56D2BDE1EC123140019F018 /* Home */,
 				D56D2BB91EC120150019F018 /* AppDelegate.h */,
@@ -135,6 +139,15 @@
 				D56D2BE71EC1252B0019F018 /* Place.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		D5FC28981EC26002002E7B03 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				D5FC28991EC26040002E7B03 /* DataManager.h */,
+				D5FC289A1EC26040002E7B03 /* DataManager.m */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D56D2BE81EC1252B0019F018 /* Place.m in Sources */,
+				D5FC289B1EC26040002E7B03 /* DataManager.m in Sources */,
 				D56D2BE41EC123E00019F018 /* BookMarksTableViewCell.m in Sources */,
 				D56D2BBB1EC120150019F018 /* AppDelegate.m in Sources */,
 				D56D2BE11EC123430019F018 /* HomeViewController.m in Sources */,
@@ -450,6 +464,7 @@
 				D56D2BDA1EC120160019F018 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D56D2BDB1EC120160019F018 /* Build configuration list for PBXNativeTarget "WeatherReportTests" */ = {
 			isa = XCConfigurationList;
@@ -458,6 +473,7 @@
 				D56D2BDD1EC120160019F018 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
