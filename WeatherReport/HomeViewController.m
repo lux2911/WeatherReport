@@ -46,18 +46,18 @@
     self.navigationItem.titleView = self.searchBar;
     
     
-    self.mapView.showsScale = YES;
-    self.mapView.showsCompass = YES;
     self.mapView.showsBuildings = YES;
     self.mapView.showsPointsOfInterest = YES;
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
     
-   
     
     [self loadData];
     
 }
+
+
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -183,8 +183,8 @@
 
 -(void)zoomToFitMyLocation {
     
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate,1000000,1000000);
-    [self.mapView setRegion:region animated:YES];
+   MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate,1000000,1000000);
+   [self.mapView setRegion:region animated:YES];
     
 }
 

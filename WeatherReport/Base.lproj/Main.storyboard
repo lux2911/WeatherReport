@@ -34,7 +34,7 @@
                 <navigationController id="HLJ-tQ-9JL" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Item" id="bmt-CC-S8H"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="O5D-OK-g0M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="O5D-OK-g0M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -45,7 +45,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dV7-qF-hDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="767" y="233"/>
+            <point key="canvasLocation" x="687" y="-260"/>
         </scene>
         <!--Home-->
         <scene sceneID="6oe-LP-wY4">
