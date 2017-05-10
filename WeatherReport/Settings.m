@@ -15,14 +15,13 @@
 
 @end
 
+static dispatch_once_t onceToken;
+static Settings *sharedInstance = nil;
+
 @implementation Settings
 
 
 + (instancetype)instance {
-    
-    static Settings *sharedInstance = nil;
-    
-    static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
@@ -95,6 +94,13 @@
 {
     _currentSettings = aSettings;
    [[NSUserDefaults standardUserDefaults] setObject:aSettings forKey:kSettings];
+}
+
+-(void)releaseSettings
+{
+    onceToken = 0;
+    sharedInstance = nil;
+    
 }
 
 

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
-
+#import "SessionMock.h"
 
 @protocol WeatherDataProtocol <NSObject>
 
@@ -24,5 +24,7 @@
 
 + (instancetype)instance;
 -(void)downloadDataWithLatitude:(CLLocationDegrees)lat andLongitude:(CLLocationDegrees)lon andUnits:(NSString*)units;
+
+@property (strong, nonatomic) id<DataTaskMockProtocol> urlSession;
 
 @end

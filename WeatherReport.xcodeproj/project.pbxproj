@@ -12,10 +12,16 @@
 		D56D2BC41EC120150019F018 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D56D2BC21EC120150019F018 /* Main.storyboard */; };
 		D56D2BC61EC120150019F018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D56D2BC51EC120150019F018 /* Assets.xcassets */; };
 		D56D2BC91EC120150019F018 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D56D2BC71EC120150019F018 /* LaunchScreen.storyboard */; };
-		D56D2BD41EC120160019F018 /* WeatherReportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D56D2BD31EC120160019F018 /* WeatherReportTests.m */; };
 		D56D2BE11EC123430019F018 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D56D2BE01EC123430019F018 /* HomeViewController.m */; };
 		D56D2BE41EC123E00019F018 /* BookMarksTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D56D2BE31EC123E00019F018 /* BookMarksTableViewCell.m */; };
 		D56D2BE81EC1252B0019F018 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = D56D2BE71EC1252B0019F018 /* Place.m */; };
+		D5C1D25C1EC33D8600A34B9D /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C1D25B1EC33D8600A34B9D /* HelpViewController.m */; };
+		D5C1D25E1EC33DBB00A34B9D /* Help.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5C1D25D1EC33DBB00A34B9D /* Help.plist */; };
+		D5C1D2A81EC3A84A00A34B9D /* WeatherReportSettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C1D2A71EC3A84A00A34B9D /* WeatherReportSettingsTests.m */; };
+		D5F4C3CB1EC3B279006A5BF2 /* WeatherReportDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F4C3CA1EC3B279006A5BF2 /* WeatherReportDataTests.m */; };
+		D5F4C3CE1EC3B3EF006A5BF2 /* SessionMock.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F4C3CD1EC3B3EF006A5BF2 /* SessionMock.m */; };
+		D5F4C3CF1EC3C3BA006A5BF2 /* SessionMock.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F4C3CD1EC3B3EF006A5BF2 /* SessionMock.m */; };
+		D5F4C3D11EC3CBF5006A5BF2 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = D5F4C3D01EC3CBF5006A5BF2 /* data.json */; };
 		D5FC289B1EC26040002E7B03 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC289A1EC26040002E7B03 /* DataManager.m */; };
 		D5FC28A21EC26A3F002E7B03 /* WeatherCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC289D1EC26A3F002E7B03 /* WeatherCollectionReusableView.m */; };
 		D5FC28A31EC26A3F002E7B03 /* WeatherCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC289F1EC26A3F002E7B03 /* WeatherCollectionViewCell.m */; };
@@ -30,7 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D56D2BD01EC120160019F018 /* PBXContainerItemProxy */ = {
+		D5C1D2A21EC3A81400A34B9D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D56D2BAB1EC120150019F018 /* Project object */;
 			proxyType = 1;
@@ -48,15 +54,22 @@
 		D56D2BC51EC120150019F018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D56D2BC81EC120150019F018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D56D2BCA1EC120160019F018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D56D2BCF1EC120160019F018 /* WeatherReportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherReportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D56D2BD31EC120160019F018 /* WeatherReportTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherReportTests.m; sourceTree = "<group>"; };
-		D56D2BD51EC120160019F018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D56D2BDF1EC123430019F018 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D56D2BE01EC123430019F018 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D56D2BE21EC123E00019F018 /* BookMarksTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookMarksTableViewCell.h; sourceTree = "<group>"; };
 		D56D2BE31EC123E00019F018 /* BookMarksTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookMarksTableViewCell.m; sourceTree = "<group>"; };
 		D56D2BE61EC1252B0019F018 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
 		D56D2BE71EC1252B0019F018 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		D5C1D25A1EC33D8600A34B9D /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		D5C1D25B1EC33D8600A34B9D /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		D5C1D25D1EC33DBB00A34B9D /* Help.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Help.plist; sourceTree = "<group>"; };
+		D5C1D29D1EC3A81400A34B9D /* WeatherReportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherReportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5C1D2A11EC3A81400A34B9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5C1D2A71EC3A84A00A34B9D /* WeatherReportSettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherReportSettingsTests.m; sourceTree = "<group>"; };
+		D5F4C3CA1EC3B279006A5BF2 /* WeatherReportDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherReportDataTests.m; sourceTree = "<group>"; };
+		D5F4C3CC1EC3B3EF006A5BF2 /* SessionMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionMock.h; sourceTree = "<group>"; };
+		D5F4C3CD1EC3B3EF006A5BF2 /* SessionMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionMock.m; sourceTree = "<group>"; };
+		D5F4C3D01EC3CBF5006A5BF2 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		D5FC28991EC26040002E7B03 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		D5FC289A1EC26040002E7B03 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		D5FC289C1EC26A3F002E7B03 /* WeatherCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherCollectionReusableView.h; sourceTree = "<group>"; };
@@ -89,7 +102,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D56D2BCC1EC120160019F018 /* Frameworks */ = {
+		D5C1D29A1EC3A81400A34B9D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -103,7 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				D56D2BB51EC120150019F018 /* WeatherReport */,
-				D56D2BD21EC120160019F018 /* WeatherReportTests */,
+				D5C1D29E1EC3A81400A34B9D /* WeatherReportTests */,
 				D56D2BB41EC120150019F018 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				D56D2BB31EC120150019F018 /* WeatherReport.app */,
-				D56D2BCF1EC120160019F018 /* WeatherReportTests.xctest */,
+				D5C1D29D1EC3A81400A34B9D /* WeatherReportTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,10 +133,11 @@
 		D56D2BB51EC120150019F018 /* WeatherReport */ = {
 			isa = PBXGroup;
 			children = (
+				D56D2BDE1EC123140019F018 /* Home */,
 				D5FC28A81EC26AF8002E7B03 /* Settings */,
+				D5C1D2591EC33D6000A34B9D /* Help */,
 				D5FC28981EC26002002E7B03 /* Managers */,
 				D56D2BE51EC1250B0019F018 /* Models */,
-				D56D2BDE1EC123140019F018 /* Home */,
 				D56D2BB91EC120150019F018 /* AppDelegate.h */,
 				D56D2BBA1EC120150019F018 /* AppDelegate.m */,
 				D56D2BC21EC120150019F018 /* Main.storyboard */,
@@ -144,32 +158,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D56D2BD21EC120160019F018 /* WeatherReportTests */ = {
-			isa = PBXGroup;
-			children = (
-				D56D2BD31EC120160019F018 /* WeatherReportTests.m */,
-				D56D2BD51EC120160019F018 /* Info.plist */,
-			);
-			path = WeatherReportTests;
-			sourceTree = "<group>";
-		};
 		D56D2BDE1EC123140019F018 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				D5FC28B71EC2788B002E7B03 /* CustomCollectionViewFlowLayout.h */,
-				D5FC28B81EC2788B002E7B03 /* CustomCollectionViewFlowLayout.m */,
+				D56D2BDF1EC123430019F018 /* HomeViewController.h */,
+				D56D2BE01EC123430019F018 /* HomeViewController.m */,
 				D5FC28A51EC26A7D002E7B03 /* CityViewController.h */,
 				D5FC28A61EC26A7D002E7B03 /* CityViewController.m */,
+				D5FC28B71EC2788B002E7B03 /* CustomCollectionViewFlowLayout.h */,
+				D5FC28B81EC2788B002E7B03 /* CustomCollectionViewFlowLayout.m */,
 				D5FC289C1EC26A3F002E7B03 /* WeatherCollectionReusableView.h */,
 				D5FC289D1EC26A3F002E7B03 /* WeatherCollectionReusableView.m */,
-				D5FC289E1EC26A3F002E7B03 /* WeatherCollectionViewCell.h */,
-				D5FC289F1EC26A3F002E7B03 /* WeatherCollectionViewCell.m */,
 				D5FC28A01EC26A3F002E7B03 /* WeatherInfo.h */,
 				D5FC28A11EC26A3F002E7B03 /* WeatherInfo.m */,
 				D56D2BE21EC123E00019F018 /* BookMarksTableViewCell.h */,
 				D56D2BE31EC123E00019F018 /* BookMarksTableViewCell.m */,
-				D56D2BDF1EC123430019F018 /* HomeViewController.h */,
-				D56D2BE01EC123430019F018 /* HomeViewController.m */,
+				D5FC289E1EC26A3F002E7B03 /* WeatherCollectionViewCell.h */,
+				D5FC289F1EC26A3F002E7B03 /* WeatherCollectionViewCell.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -181,6 +186,29 @@
 				D56D2BE71EC1252B0019F018 /* Place.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		D5C1D2591EC33D6000A34B9D /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				D5C1D25A1EC33D8600A34B9D /* HelpViewController.h */,
+				D5C1D25B1EC33D8600A34B9D /* HelpViewController.m */,
+				D5C1D25D1EC33DBB00A34B9D /* Help.plist */,
+			);
+			name = Help;
+			sourceTree = "<group>";
+		};
+		D5C1D29E1EC3A81400A34B9D /* WeatherReportTests */ = {
+			isa = PBXGroup;
+			children = (
+				D5F4C3CA1EC3B279006A5BF2 /* WeatherReportDataTests.m */,
+				D5C1D2A71EC3A84A00A34B9D /* WeatherReportSettingsTests.m */,
+				D5C1D2A11EC3A81400A34B9D /* Info.plist */,
+				D5F4C3CC1EC3B3EF006A5BF2 /* SessionMock.h */,
+				D5F4C3CD1EC3B3EF006A5BF2 /* SessionMock.m */,
+				D5F4C3D01EC3CBF5006A5BF2 /* data.json */,
+			);
+			path = WeatherReportTests;
 			sourceTree = "<group>";
 		};
 		D5FC28981EC26002002E7B03 /* Managers */ = {
@@ -195,12 +223,12 @@
 		D5FC28A81EC26AF8002E7B03 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				D5FC28B41EC274E2002E7B03 /* SettingsButtonTableViewCell.h */,
-				D5FC28B51EC274E2002E7B03 /* SettingsButtonTableViewCell.m */,
 				D5FC28B11EC2746B002E7B03 /* SettingsViewController.h */,
 				D5FC28B21EC2746B002E7B03 /* SettingsViewController.m */,
 				D5FC28AE1EC273DA002E7B03 /* SettingListViewController.h */,
 				D5FC28AF1EC273DA002E7B03 /* SettingListViewController.m */,
+				D5FC28B41EC274E2002E7B03 /* SettingsButtonTableViewCell.h */,
+				D5FC28B51EC274E2002E7B03 /* SettingsButtonTableViewCell.m */,
 				D5FC28A91EC26B2B002E7B03 /* Settings.h */,
 				D5FC28AA1EC26B2B002E7B03 /* Settings.m */,
 				D5FC28AB1EC26B2B002E7B03 /* Settings.plist */,
@@ -228,22 +256,22 @@
 			productReference = D56D2BB31EC120150019F018 /* WeatherReport.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D56D2BCE1EC120160019F018 /* WeatherReportTests */ = {
+		D5C1D29C1EC3A81400A34B9D /* WeatherReportTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D56D2BDB1EC120160019F018 /* Build configuration list for PBXNativeTarget "WeatherReportTests" */;
+			buildConfigurationList = D5C1D2A41EC3A81400A34B9D /* Build configuration list for PBXNativeTarget "WeatherReportTests" */;
 			buildPhases = (
-				D56D2BCB1EC120160019F018 /* Sources */,
-				D56D2BCC1EC120160019F018 /* Frameworks */,
-				D56D2BCD1EC120160019F018 /* Resources */,
+				D5C1D2991EC3A81400A34B9D /* Sources */,
+				D5C1D29A1EC3A81400A34B9D /* Frameworks */,
+				D5C1D29B1EC3A81400A34B9D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D56D2BD11EC120160019F018 /* PBXTargetDependency */,
+				D5C1D2A31EC3A81400A34B9D /* PBXTargetDependency */,
 			);
 			name = WeatherReportTests;
 			productName = WeatherReportTests;
-			productReference = D56D2BCF1EC120160019F018 /* WeatherReportTests.xctest */;
+			productReference = D5C1D29D1EC3A81400A34B9D /* WeatherReportTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -260,7 +288,7 @@
 						DevelopmentTeam = EDNPN88343;
 						ProvisioningStyle = Automatic;
 					};
-					D56D2BCE1EC120160019F018 = {
+					D5C1D29C1EC3A81400A34B9D = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = EDNPN88343;
 						ProvisioningStyle = Automatic;
@@ -282,7 +310,7 @@
 			projectRoot = "";
 			targets = (
 				D56D2BB21EC120150019F018 /* WeatherReport */,
-				D56D2BCE1EC120160019F018 /* WeatherReportTests */,
+				D5C1D29C1EC3A81400A34B9D /* WeatherReportTests */,
 			);
 		};
 /* End PBXProject section */
@@ -292,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5C1D25E1EC33DBB00A34B9D /* Help.plist in Resources */,
 				D56D2BC91EC120150019F018 /* LaunchScreen.storyboard in Resources */,
 				D5FC28AD1EC26B2B002E7B03 /* Settings.plist in Resources */,
 				D56D2BC61EC120150019F018 /* Assets.xcassets in Resources */,
@@ -299,10 +328,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D56D2BCD1EC120160019F018 /* Resources */ = {
+		D5C1D29B1EC3A81400A34B9D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5F4C3D11EC3CBF5006A5BF2 /* data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,12 +344,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5FC28B61EC274E2002E7B03 /* SettingsButtonTableViewCell.m in Sources */,
+				D5F4C3CF1EC3C3BA006A5BF2 /* SessionMock.m in Sources */,
 				D5FC28A21EC26A3F002E7B03 /* WeatherCollectionReusableView.m in Sources */,
 				D56D2BE81EC1252B0019F018 /* Place.m in Sources */,
 				D5FC289B1EC26040002E7B03 /* DataManager.m in Sources */,
 				D5FC28B91EC2788B002E7B03 /* CustomCollectionViewFlowLayout.m in Sources */,
 				D5FC28AC1EC26B2B002E7B03 /* Settings.m in Sources */,
 				D56D2BE41EC123E00019F018 /* BookMarksTableViewCell.m in Sources */,
+				D5C1D25C1EC33D8600A34B9D /* HelpViewController.m in Sources */,
 				D56D2BBB1EC120150019F018 /* AppDelegate.m in Sources */,
 				D5FC28A31EC26A3F002E7B03 /* WeatherCollectionViewCell.m in Sources */,
 				D56D2BE11EC123430019F018 /* HomeViewController.m in Sources */,
@@ -331,21 +363,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D56D2BCB1EC120160019F018 /* Sources */ = {
+		D5C1D2991EC3A81400A34B9D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D56D2BD41EC120160019F018 /* WeatherReportTests.m in Sources */,
+				D5F4C3CB1EC3B279006A5BF2 /* WeatherReportDataTests.m in Sources */,
+				D5C1D2A81EC3A84A00A34B9D /* WeatherReportSettingsTests.m in Sources */,
+				D5F4C3CE1EC3B3EF006A5BF2 /* SessionMock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D56D2BD11EC120160019F018 /* PBXTargetDependency */ = {
+		D5C1D2A31EC3A81400A34B9D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D56D2BB21EC120150019F018 /* WeatherReport */;
-			targetProxy = D56D2BD01EC120160019F018 /* PBXContainerItemProxy */;
+			targetProxy = D5C1D2A21EC3A81400A34B9D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -491,7 +525,7 @@
 			};
 			name = Release;
 		};
-		D56D2BDC1EC120160019F018 /* Debug */ = {
+		D5C1D2A51EC3A81400A34B9D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -504,7 +538,7 @@
 			};
 			name = Debug;
 		};
-		D56D2BDD1EC120160019F018 /* Release */ = {
+		D5C1D2A61EC3A81400A34B9D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -538,11 +572,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D56D2BDB1EC120160019F018 /* Build configuration list for PBXNativeTarget "WeatherReportTests" */ = {
+		D5C1D2A41EC3A81400A34B9D /* Build configuration list for PBXNativeTarget "WeatherReportTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D56D2BDC1EC120160019F018 /* Debug */,
-				D56D2BDD1EC120160019F018 /* Release */,
+				D5C1D2A51EC3A81400A34B9D /* Debug */,
+				D5C1D2A61EC3A81400A34B9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

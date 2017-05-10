@@ -10,7 +10,7 @@
 
 @interface DataManager ()
 
-@property (strong, nonatomic) NSURLSession* urlSession;
+
 @property (strong, nonatomic) NSURLSessionDataTask* dataTask;
 
 @end
@@ -46,6 +46,8 @@ static NSErrorDomain OpenWeatherMapApiErrorDomain = @"OpenWeatherMapApiErrorDoma
     if (self)
     {
         self.urlSession= [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        
+        
     }
     
     return self;

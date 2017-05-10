@@ -28,4 +28,6 @@
 -(NSMutableDictionary *)currentSettings;
 -(void)saveSettings:(NSMutableDictionary*)aSettings;
 
+-(void)releaseSettings;
+
 @end
