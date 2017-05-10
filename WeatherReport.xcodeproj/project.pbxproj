@@ -20,7 +20,6 @@
 		D5C1D2A81EC3A84A00A34B9D /* WeatherReportSettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C1D2A71EC3A84A00A34B9D /* WeatherReportSettingsTests.m */; };
 		D5F4C3CB1EC3B279006A5BF2 /* WeatherReportDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F4C3CA1EC3B279006A5BF2 /* WeatherReportDataTests.m */; };
 		D5F4C3CE1EC3B3EF006A5BF2 /* SessionMock.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F4C3CD1EC3B3EF006A5BF2 /* SessionMock.m */; };
-		D5F4C3CF1EC3C3BA006A5BF2 /* SessionMock.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F4C3CD1EC3B3EF006A5BF2 /* SessionMock.m */; };
 		D5F4C3D11EC3CBF5006A5BF2 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = D5F4C3D01EC3CBF5006A5BF2 /* data.json */; };
 		D5FC289B1EC26040002E7B03 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC289A1EC26040002E7B03 /* DataManager.m */; };
 		D5FC28A21EC26A3F002E7B03 /* WeatherCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC289D1EC26A3F002E7B03 /* WeatherCollectionReusableView.m */; };
@@ -344,7 +343,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5FC28B61EC274E2002E7B03 /* SettingsButtonTableViewCell.m in Sources */,
-				D5F4C3CF1EC3C3BA006A5BF2 /* SessionMock.m in Sources */,
 				D5FC28A21EC26A3F002E7B03 /* WeatherCollectionReusableView.m in Sources */,
 				D56D2BE81EC1252B0019F018 /* Place.m in Sources */,
 				D5FC289B1EC26040002E7B03 /* DataManager.m in Sources */,

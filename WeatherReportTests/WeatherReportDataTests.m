@@ -31,12 +31,14 @@
     
     SessionMock* aSession = [[SessionMock alloc] initWithData:aData andResponse:aResponse andError:nil];
     
-    [DataManager instance].urlSession = aSession;
+    [DataManager instance].urlSession = (id<DataTaskMockProtocol>)aSession;
     [DataManager instance].delegate = self;
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+   
+    [[DataManager instance] releaseDataManager];
+    
     [super tearDown];
 }
 
@@ -77,12 +79,11 @@
 
 -(void)weatherInfo:(NSDictionary*)json
 {
-   
-    [_promise fulfill];
+   [_promise fulfill];
 }
 -(void)onError:(NSError*)error message:(NSString*)msg
 {
-    
+   
 }
 
 

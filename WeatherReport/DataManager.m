@@ -23,13 +23,12 @@ static NSString* apiKey = @"c6e381d8c7ff98f0fee43775817cf6ad";
 
 static NSErrorDomain OpenWeatherMapApiErrorDomain = @"OpenWeatherMapApiErrorDomain";
 
+static DataManager *sharedInstance = nil;
 
+static dispatch_once_t onceToken;
 
 + (instancetype)instance {
     
-    static DataManager *sharedInstance = nil;
-    
-    static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
@@ -117,5 +116,13 @@ static NSErrorDomain OpenWeatherMapApiErrorDomain = @"OpenWeatherMapApiErrorDoma
     
     
 }
+
+-(void)releaseDataManager
+{
+    onceToken = 0;
+    sharedInstance = nil;
+    
+}
+
 
 @end
