@@ -21,7 +21,7 @@ static NSString* baseAddress = @"http://api.openweathermap.org/data/2.5/forecast
 
 static NSString* apiKey = @"c6e381d8c7ff98f0fee43775817cf6ad";
 
-static NSErrorDomain OpenWeatherMapApiErrorDomain;
+static NSErrorDomain OpenWeatherMapApiErrorDomain = @"OpenWeatherMapApiErrorDomain";
 
 
 
@@ -60,12 +60,13 @@ static NSErrorDomain OpenWeatherMapApiErrorDomain;
         
         if (!error)
         {
+            
             NSError * jsonErr;
             NSDictionary* dict=	[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonErr];
             
             if (!jsonErr)
             {
-                if (![dict[@"cod"] isEqualToString:@"200"])
+                if ([dict[@"cod"] isEqualToString:@"200"])
                 {
                     if ([self.delegate respondsToSelector:@selector(weatherInfo:)])
                         [self.delegate weatherInfo:dict];
@@ -76,7 +77,11 @@ static NSErrorDomain OpenWeatherMapApiErrorDomain;
                     {
                         NSError* err = [NSError errorWithDomain:OpenWeatherMapApiErrorDomain code:[dict[@"cod"] integerValue] userInfo:nil];
                         
-                        [self.delegate onError:err message:dict[@"message"]];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self.delegate onError:err message:dict[@"message"]];
+                            
+                        });
+                        
                     }
                 }
             }
@@ -84,7 +89,9 @@ static NSErrorDomain OpenWeatherMapApiErrorDomain;
             {
                if ([self.delegate respondsToSelector:@selector(onError:message:)])
                {
-                   [self.delegate onError:jsonErr message:nil];
+                   dispatch_async(dispatch_get_main_queue(), ^{
+                       [self.delegate onError:jsonErr message:nil];
+                  });
                }
             }
         }
@@ -92,7 +99,10 @@ static NSErrorDomain OpenWeatherMapApiErrorDomain;
         {
             if ([self.delegate respondsToSelector:@selector(onError:message:)])
             {
-                [self.delegate onError:error message:nil];
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                
+                     [self.delegate onError:error message:nil];
+                 });
             }
   
         }

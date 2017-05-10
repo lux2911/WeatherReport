@@ -9,12 +9,17 @@
 #import "HomeViewController.h"
 #import "BookMarksTableViewCell.h"
 #import "Place.h"
+#import "CityViewController.h"
+#import "Settings.h"
+
+#import <Contacts/Contacts.h>
 
 @interface HomeViewController ()
 {
     BOOL doAddPin;
     BOOL isLoading;
     BOOL isDataInvalidated;
+    BOOL userLocationUpdated;
     MKPointAnnotation* dragAnnotation;
     MKPinAnnotationView* dragAnnotationView;
 }
@@ -50,6 +55,10 @@
     self.mapView.showsPointsOfInterest = YES;
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bookmarksDeleted) name:@"bookmarksDeleted" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(modeSwitched:) name:@"modeSwitched" object:nil];
     
     
     [self loadData];
@@ -90,8 +99,12 @@
             Place* lastPlace = [self.tableData lastObject];
             
            
-                [self createDraggableAnnotation:lastPlace.coordinate];
-                [self.mapView addAnnotation:dragAnnotation];
+              if ([[[Settings instance] currentSettings][kMode] isEqualToString:kDrag])
+              {
+                  [self createDraggableAnnotation:lastPlace.coordinate];
+                  [self.mapView addAnnotation:dragAnnotation];
+              }
+
             
             
               [self.tableView reloadData];
@@ -183,7 +196,15 @@
 
 -(void)zoomToFitMyLocation {
     
-   MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate,1000000,1000000);
+   
+    CLLocationCoordinate2D coord;
+    
+    if (dragAnnotation)
+        coord = dragAnnotation.coordinate;
+    else
+        coord = self.mapView.userLocation.coordinate;
+   
+   MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord,1000000,1000000);
    [self.mapView setRegion:region animated:YES];
     
 }
@@ -202,20 +223,39 @@
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    [self zoomToFitMyLocation];
+    if (!userLocationUpdated)
+    {
+        [self zoomToFitMyLocation];
+        userLocationUpdated = YES;
+    }
 }
 
 - (IBAction)onMapTap:(UITapGestureRecognizer*)sender {
    
   
-      if ([self isDraggeblePinAdded])
-          return;
-      
-      doAddPin = YES;
-      
-      NSDictionary* dict = [self makePointsDict:sender];
-      
-      [self performSelector:@selector(addDraggablePin:) withObject:dict afterDelay:0.3];
+    if ([[[Settings instance] currentSettings][kMode] isEqualToString:kDrop])
+    {
+        
+        if ([self.mapView.selectedAnnotations count]>0)
+            return;
+        
+        
+        doAddPin = YES;
+        NSDictionary* dict = [self makePointsDict:sender];
+        [self performSelector:@selector(addDropPin:) withObject:dict afterDelay:0.3];
+    }
+    else
+    {
+        if ([self isDraggeblePinAdded])
+            return;
+        
+        doAddPin = YES;
+        
+        NSDictionary* dict = [self makePointsDict:sender];
+        
+        [self performSelector:@selector(addDraggablePin:) withObject:dict afterDelay:0.3];
+    }
+
   
     
 }
@@ -240,6 +280,18 @@
 
     return NO;
 }
+
+-(void)addDropPin:(NSDictionary*)sender
+{
+    if (doAddPin && [self.mapView.selectedAnnotations count]==0)
+    {
+        CGPoint aPoint = CGPointMake([sender[@"x"] floatValue], [sender[@"y"] floatValue]);
+        CLLocationCoordinate2D coord = [self.mapView convertPoint:aPoint toCoordinateFromView:self.mapView];
+        [self addAnnotation:coord];
+    }
+}
+
+
 
 -(void)addDraggablePin:(NSDictionary*)sender
 {
@@ -278,7 +330,9 @@
         if (!error)
         {
             CLPlacemark* aPlacemark = placemarks[0];
-            aTitle = aPlacemark.locality ? [NSString stringWithFormat:@"%@ (%.7f, %.7f)",aPlacemark.locality,coord.latitude,coord.longitude] : [NSString stringWithFormat:@"%@ (%.7f, %.7f)",aPlacemark.country,coord.latitude,coord.longitude];
+            
+            aTitle=[aPlacemark.addressDictionary[@"FormattedAddressLines"] componentsJoinedByString:@","];
+            
         }
          else
              aTitle = [NSString stringWithFormat:@"(%.7f,%.7f)",coord.latitude,coord.longitude];
@@ -403,6 +457,29 @@
     [self selectDraggablePin];
 }
 
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    
+    
+    UINavigationController* nc = [sb instantiateViewControllerWithIdentifier:@"CityNavigationController"];
+    
+    CityViewController* vc = (CityViewController*)[nc topViewController];
+    
+    vc.place = (Place*)view.annotation;
+    
+    [vc downloadData];
+    
+    [self presentViewController:nc animated:YES completion:nil];
+    
+    
+    
+    [self.mapView deselectAnnotation:view.annotation animated:nil];
+    
+    
+}
 
 
 
@@ -455,6 +532,41 @@
 {
     [searchBar resignFirstResponder];
    
+}
+
+-(void)bookmarksDeleted
+{
+    isDataInvalidated = YES;
+}
+
+-(void)modeSwitched:(NSNotification*)aNotification
+{
+    if ([aNotification.userInfo[@"mode"] isEqualToString:@"drop"])
+    {
+        [self.mapView removeAnnotation:dragAnnotation];
+        dragAnnotation = nil;
+        
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ShowWeather"])
+    {
+        
+        UINavigationController* nc=(UINavigationController*) segue.destinationViewController;
+        
+        CityViewController* vc = (CityViewController*)[nc topViewController];
+        
+        NSIndexPath* aPath = self.tableView.indexPathForSelectedRow;
+        
+        Place* aPlace = self.tableData[aPath.row];
+        
+        vc.place = aPlace;
+        
+        [vc downloadData];
+        
+    }
 }
 
 

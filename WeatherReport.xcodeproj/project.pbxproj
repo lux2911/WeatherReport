@@ -17,6 +17,16 @@
 		D56D2BE41EC123E00019F018 /* BookMarksTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D56D2BE31EC123E00019F018 /* BookMarksTableViewCell.m */; };
 		D56D2BE81EC1252B0019F018 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = D56D2BE71EC1252B0019F018 /* Place.m */; };
 		D5FC289B1EC26040002E7B03 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC289A1EC26040002E7B03 /* DataManager.m */; };
+		D5FC28A21EC26A3F002E7B03 /* WeatherCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC289D1EC26A3F002E7B03 /* WeatherCollectionReusableView.m */; };
+		D5FC28A31EC26A3F002E7B03 /* WeatherCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC289F1EC26A3F002E7B03 /* WeatherCollectionViewCell.m */; };
+		D5FC28A41EC26A3F002E7B03 /* WeatherInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC28A11EC26A3F002E7B03 /* WeatherInfo.m */; };
+		D5FC28A71EC26A7D002E7B03 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC28A61EC26A7D002E7B03 /* CityViewController.m */; };
+		D5FC28AC1EC26B2B002E7B03 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC28AA1EC26B2B002E7B03 /* Settings.m */; };
+		D5FC28AD1EC26B2B002E7B03 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5FC28AB1EC26B2B002E7B03 /* Settings.plist */; };
+		D5FC28B01EC273DA002E7B03 /* SettingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC28AF1EC273DA002E7B03 /* SettingListViewController.m */; };
+		D5FC28B31EC2746B002E7B03 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC28B21EC2746B002E7B03 /* SettingsViewController.m */; };
+		D5FC28B61EC274E2002E7B03 /* SettingsButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC28B51EC274E2002E7B03 /* SettingsButtonTableViewCell.m */; };
+		D5FC28B91EC2788B002E7B03 /* CustomCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC28B81EC2788B002E7B03 /* CustomCollectionViewFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +59,26 @@
 		D56D2BE71EC1252B0019F018 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		D5FC28991EC26040002E7B03 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		D5FC289A1EC26040002E7B03 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		D5FC289C1EC26A3F002E7B03 /* WeatherCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherCollectionReusableView.h; sourceTree = "<group>"; };
+		D5FC289D1EC26A3F002E7B03 /* WeatherCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherCollectionReusableView.m; sourceTree = "<group>"; };
+		D5FC289E1EC26A3F002E7B03 /* WeatherCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherCollectionViewCell.h; sourceTree = "<group>"; };
+		D5FC289F1EC26A3F002E7B03 /* WeatherCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherCollectionViewCell.m; sourceTree = "<group>"; };
+		D5FC28A01EC26A3F002E7B03 /* WeatherInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherInfo.h; sourceTree = "<group>"; };
+		D5FC28A11EC26A3F002E7B03 /* WeatherInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherInfo.m; sourceTree = "<group>"; };
+		D5FC28A51EC26A7D002E7B03 /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
+		D5FC28A61EC26A7D002E7B03 /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
+		D5FC28A91EC26B2B002E7B03 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		D5FC28AA1EC26B2B002E7B03 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		D5FC28AB1EC26B2B002E7B03 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		D5FC28AE1EC273DA002E7B03 /* SettingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingListViewController.h; sourceTree = "<group>"; };
+		D5FC28AF1EC273DA002E7B03 /* SettingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingListViewController.m; sourceTree = "<group>"; };
+		D5FC28B11EC2746B002E7B03 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		D5FC28B21EC2746B002E7B03 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		D5FC28B41EC274E2002E7B03 /* SettingsButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsButtonTableViewCell.h; sourceTree = "<group>"; };
+		D5FC28B51EC274E2002E7B03 /* SettingsButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsButtonTableViewCell.m; sourceTree = "<group>"; };
+		D5FC28B71EC2788B002E7B03 /* CustomCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		D5FC28B81EC2788B002E7B03 /* CustomCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		D5FC28BA1EC27D3F002E7B03 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +120,7 @@
 		D56D2BB51EC120150019F018 /* WeatherReport */ = {
 			isa = PBXGroup;
 			children = (
+				D5FC28A81EC26AF8002E7B03 /* Settings */,
 				D5FC28981EC26002002E7B03 /* Managers */,
 				D56D2BE51EC1250B0019F018 /* Models */,
 				D56D2BDE1EC123140019F018 /* Home */,
@@ -100,6 +131,7 @@
 				D56D2BC71EC120150019F018 /* LaunchScreen.storyboard */,
 				D56D2BCA1EC120160019F018 /* Info.plist */,
 				D56D2BB61EC120150019F018 /* Supporting Files */,
+				D5FC28BA1EC27D3F002E7B03 /* PrefixHeader.pch */,
 			);
 			path = WeatherReport;
 			sourceTree = "<group>";
@@ -124,6 +156,16 @@
 		D56D2BDE1EC123140019F018 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D5FC28B71EC2788B002E7B03 /* CustomCollectionViewFlowLayout.h */,
+				D5FC28B81EC2788B002E7B03 /* CustomCollectionViewFlowLayout.m */,
+				D5FC28A51EC26A7D002E7B03 /* CityViewController.h */,
+				D5FC28A61EC26A7D002E7B03 /* CityViewController.m */,
+				D5FC289C1EC26A3F002E7B03 /* WeatherCollectionReusableView.h */,
+				D5FC289D1EC26A3F002E7B03 /* WeatherCollectionReusableView.m */,
+				D5FC289E1EC26A3F002E7B03 /* WeatherCollectionViewCell.h */,
+				D5FC289F1EC26A3F002E7B03 /* WeatherCollectionViewCell.m */,
+				D5FC28A01EC26A3F002E7B03 /* WeatherInfo.h */,
+				D5FC28A11EC26A3F002E7B03 /* WeatherInfo.m */,
 				D56D2BE21EC123E00019F018 /* BookMarksTableViewCell.h */,
 				D56D2BE31EC123E00019F018 /* BookMarksTableViewCell.m */,
 				D56D2BDF1EC123430019F018 /* HomeViewController.h */,
@@ -148,6 +190,22 @@
 				D5FC289A1EC26040002E7B03 /* DataManager.m */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		D5FC28A81EC26AF8002E7B03 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D5FC28B41EC274E2002E7B03 /* SettingsButtonTableViewCell.h */,
+				D5FC28B51EC274E2002E7B03 /* SettingsButtonTableViewCell.m */,
+				D5FC28B11EC2746B002E7B03 /* SettingsViewController.h */,
+				D5FC28B21EC2746B002E7B03 /* SettingsViewController.m */,
+				D5FC28AE1EC273DA002E7B03 /* SettingListViewController.h */,
+				D5FC28AF1EC273DA002E7B03 /* SettingListViewController.m */,
+				D5FC28A91EC26B2B002E7B03 /* Settings.h */,
+				D5FC28AA1EC26B2B002E7B03 /* Settings.m */,
+				D5FC28AB1EC26B2B002E7B03 /* Settings.plist */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D56D2BC91EC120150019F018 /* LaunchScreen.storyboard in Resources */,
+				D5FC28AD1EC26B2B002E7B03 /* Settings.plist in Resources */,
 				D56D2BC61EC120150019F018 /* Assets.xcassets in Resources */,
 				D56D2BC41EC120150019F018 /* Main.storyboard in Resources */,
 			);
@@ -254,12 +313,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5FC28B61EC274E2002E7B03 /* SettingsButtonTableViewCell.m in Sources */,
+				D5FC28A21EC26A3F002E7B03 /* WeatherCollectionReusableView.m in Sources */,
 				D56D2BE81EC1252B0019F018 /* Place.m in Sources */,
 				D5FC289B1EC26040002E7B03 /* DataManager.m in Sources */,
+				D5FC28B91EC2788B002E7B03 /* CustomCollectionViewFlowLayout.m in Sources */,
+				D5FC28AC1EC26B2B002E7B03 /* Settings.m in Sources */,
 				D56D2BE41EC123E00019F018 /* BookMarksTableViewCell.m in Sources */,
 				D56D2BBB1EC120150019F018 /* AppDelegate.m in Sources */,
+				D5FC28A31EC26A3F002E7B03 /* WeatherCollectionViewCell.m in Sources */,
 				D56D2BE11EC123430019F018 /* HomeViewController.m in Sources */,
+				D5FC28A71EC26A7D002E7B03 /* CityViewController.m in Sources */,
+				D5FC28A41EC26A3F002E7B03 /* WeatherInfo.m in Sources */,
 				D56D2BB81EC120150019F018 /* main.m in Sources */,
+				D5FC28B01EC273DA002E7B03 /* SettingListViewController.m in Sources */,
+				D5FC28B31EC2746B002E7B03 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +466,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EDNPN88343;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WeatherReport/PrefixHeader.pch;
 				INFOPLIST_FILE = WeatherReport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -411,6 +481,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EDNPN88343;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WeatherReport/PrefixHeader.pch;
 				INFOPLIST_FILE = WeatherReport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

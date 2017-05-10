@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>isButton</key>
+		<false/>
+		<key>footer</key>
+		<string></string>
+		<key>title</key>
+		<string>Unit system</string>
+		<key>key</key>
+		<string>unit</string>
+		<key>content</key>
+		<array>
+			<string>metric</string>
+			<string>imperial</string>
+		</array>
+	</dict>
+	<dict>
+		<key>isButton</key>
+		<false/>
+		<key>footer</key>
+		<string>You can choose between two modes:
+- drag pin mode - after first touch on map , purple pin is created which you then drag to create bookmarks
+- drop pin mode - bookmarks are created by tapping on map</string>
+		<key>title</key>
+		<string>Pin mode</string>
+		<key>key</key>
+		<string>mode</string>
+		<key>content</key>
+		<array>
+			<string>drop</string>
+			<string>drag</string>
+		</array>
+	</dict>
+	<dict>
+		<key>isButton</key>
+		<true/>
+		<key>footer</key>
+		<string>Press button to clear saved bookmarks</string>
+		<key>title</key>
+		<string>Clear bookmarks</string>
+		<key>key</key>
+		<string>clear_bookmarks</string>
+		<key>content</key>
+		<array/>
+	</dict>
+</array>
+</plist>
