@@ -10,7 +10,7 @@
 #import "Settings.h"
 
 @interface WeatherReportSettingsTests : XCTestCase
-@property (strong, nonatomic) Settings* settings;
+
 @end
 
 @implementation WeatherReportSettingsTests
