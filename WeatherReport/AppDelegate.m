@@ -20,8 +20,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    aManager = [CLLocationManager new];
-    [aManager requestWhenInUseAuthorization];
+   
+    if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse)
+    {
+      aManager = [CLLocationManager new];
+      [aManager requestWhenInUseAuthorization];
+      
+    }
     
     return YES;
 }
