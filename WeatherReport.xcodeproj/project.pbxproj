@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D55809191EC4786900B6D916 /* WeatherReportLiveDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D55809181EC4786900B6D916 /* WeatherReportLiveDataTests.m */; };
 		D56D2BB81EC120150019F018 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D56D2BB71EC120150019F018 /* main.m */; };
 		D56D2BBB1EC120150019F018 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D56D2BBA1EC120150019F018 /* AppDelegate.m */; };
 		D56D2BC41EC120150019F018 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D56D2BC21EC120150019F018 /* Main.storyboard */; };
@@ -18,7 +19,7 @@
 		D5C1D25C1EC33D8600A34B9D /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C1D25B1EC33D8600A34B9D /* HelpViewController.m */; };
 		D5C1D25E1EC33DBB00A34B9D /* Help.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5C1D25D1EC33DBB00A34B9D /* Help.plist */; };
 		D5C1D2A81EC3A84A00A34B9D /* WeatherReportSettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C1D2A71EC3A84A00A34B9D /* WeatherReportSettingsTests.m */; };
-		D5F4C3CB1EC3B279006A5BF2 /* WeatherReportDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F4C3CA1EC3B279006A5BF2 /* WeatherReportDataTests.m */; };
+		D5DFAD261EC47B2B00234FF8 /* WeatherReportMockedDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DFAD251EC47B2B00234FF8 /* WeatherReportMockedDataTests.m */; };
 		D5F4C3CE1EC3B3EF006A5BF2 /* SessionMock.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F4C3CD1EC3B3EF006A5BF2 /* SessionMock.m */; };
 		D5F4C3D11EC3CBF5006A5BF2 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = D5F4C3D01EC3CBF5006A5BF2 /* data.json */; };
 		D5FC289B1EC26040002E7B03 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FC289A1EC26040002E7B03 /* DataManager.m */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D55809181EC4786900B6D916 /* WeatherReportLiveDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherReportLiveDataTests.m; sourceTree = "<group>"; };
 		D56D2BB31EC120150019F018 /* WeatherReport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherReport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D56D2BB71EC120150019F018 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D56D2BB91EC120150019F018 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,7 +67,7 @@
 		D5C1D29D1EC3A81400A34B9D /* WeatherReportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherReportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5C1D2A11EC3A81400A34B9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5C1D2A71EC3A84A00A34B9D /* WeatherReportSettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherReportSettingsTests.m; sourceTree = "<group>"; };
-		D5F4C3CA1EC3B279006A5BF2 /* WeatherReportDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherReportDataTests.m; sourceTree = "<group>"; };
+		D5DFAD251EC47B2B00234FF8 /* WeatherReportMockedDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherReportMockedDataTests.m; sourceTree = "<group>"; };
 		D5F4C3CC1EC3B3EF006A5BF2 /* SessionMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionMock.h; sourceTree = "<group>"; };
 		D5F4C3CD1EC3B3EF006A5BF2 /* SessionMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionMock.m; sourceTree = "<group>"; };
 		D5F4C3D01EC3CBF5006A5BF2 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
@@ -200,8 +202,9 @@
 		D5C1D29E1EC3A81400A34B9D /* WeatherReportTests */ = {
 			isa = PBXGroup;
 			children = (
-				D5F4C3CA1EC3B279006A5BF2 /* WeatherReportDataTests.m */,
 				D5C1D2A71EC3A84A00A34B9D /* WeatherReportSettingsTests.m */,
+				D55809181EC4786900B6D916 /* WeatherReportLiveDataTests.m */,
+				D5DFAD251EC47B2B00234FF8 /* WeatherReportMockedDataTests.m */,
 				D5C1D2A11EC3A81400A34B9D /* Info.plist */,
 				D5F4C3CC1EC3B3EF006A5BF2 /* SessionMock.h */,
 				D5F4C3CD1EC3B3EF006A5BF2 /* SessionMock.m */,
@@ -365,8 +368,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5F4C3CB1EC3B279006A5BF2 /* WeatherReportDataTests.m in Sources */,
 				D5C1D2A81EC3A84A00A34B9D /* WeatherReportSettingsTests.m in Sources */,
+				D55809191EC4786900B6D916 /* WeatherReportLiveDataTests.m in Sources */,
+				D5DFAD261EC47B2B00234FF8 /* WeatherReportMockedDataTests.m in Sources */,
 				D5F4C3CE1EC3B3EF006A5BF2 /* SessionMock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

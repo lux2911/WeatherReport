@@ -7,7 +7,7 @@
 //
 
 #import "SessionMock.h"
-// typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
+
 
 typedef void(^CompletionHandler)(NSData*,NSURLResponse*,NSError*);
 
@@ -77,9 +77,5 @@ typedef void(^CompletionHandler)(NSData*,NSURLResponse*,NSError*);
 
 
 
-@implementation NSURLSession (SessionCategory)
 
-
-
-@end
 

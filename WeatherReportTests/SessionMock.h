@@ -22,7 +22,5 @@
 
 @end
 
-@interface NSURLSession (SessionCategory)<DataTaskMockProtocol>
 
-@end
 

@@ -32,11 +32,16 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D56D2BCE1EC120160019F018"
+               BlueprintIdentifier = "D5C1D29C1EC3A81400A34B9D"
                BuildableName = "WeatherReportTests.xctest"
                BlueprintName = "WeatherReportTests"
                ReferencedContainer = "container:WeatherReport.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "WeatherReportDataTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

@@ -79,7 +79,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2yJ-qd-sqn" id="gcT-i1-AcV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHE-qe-09U">
@@ -122,7 +122,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Home" image="first" id="CBy-yD-Sa0"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="CBy-yD-Sa0"/>
                     <navigationItem key="navigationItem" id="JQS-Wt-aLF"/>
                     <connections>
                         <outlet property="mapView" destination="zDe-rj-yC9" id="NbB-bX-1eC"/>
@@ -378,7 +378,7 @@
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="390-t2-FaF" id="SqD-R4-HUs">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaC-PU-nYK">
@@ -461,10 +461,10 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingItemCell" id="nhm-yj-Q2Y">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nhm-yj-Q2Y" id="nvH-GE-0Z5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -517,7 +517,7 @@
                             <constraint firstItem="ZgB-jo-Zko" firstAttribute="centerY" secondItem="KtL-BL-fks" secondAttribute="centerY" id="sLF-LQ-vrk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Help" image="second" id="ydd-km-QfF"/>
+                    <tabBarItem key="tabBarItem" title="Help" image="help" id="ydd-km-QfF"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="progressView" destination="ZgB-jo-Zko" id="Hg4-xr-bQT"/>
@@ -529,8 +529,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
-        <image name="settings" width="42" height="42"/>
+        <image name="help" width="25" height="25"/>
+        <image name="home" width="25" height="25"/>
+        <image name="settings" width="25" height="25"/>
     </resources>
 </document>
