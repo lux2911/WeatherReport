@@ -27,8 +27,6 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>WeatherReport needs your location to show it on map</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

@@ -62,6 +62,8 @@ static NSString* iconAddress = @"http://openweathermap.org/img/w/%@.png";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark -UICollectionViewDataSource
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return [self.collectionData count];
@@ -82,6 +84,29 @@ static NSString* iconAddress = @"http://openweathermap.org/img/w/%@.png";
     
     
 }
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+        
+        WeatherCollectionReusableView* reusableview = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"WeatherHeader" forIndexPath:indexPath];
+        
+        NSDictionary* dict = self.collectionData[indexPath.section];
+        
+        reusableview.lblDate.text = dict[@"date"];
+        
+        return reusableview;
+    }
+    
+    
+    return nil;
+}
+
+
+#pragma mark
+
+#pragma mark -UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 
@@ -106,23 +131,6 @@ static NSString* iconAddress = @"http://openweathermap.org/img/w/%@.png";
 }
 
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
-    
-    if (kind == UICollectionElementKindSectionHeader) {
-       
-       WeatherCollectionReusableView* reusableview = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"WeatherHeader" forIndexPath:indexPath];
-       
-       NSDictionary* dict = self.collectionData[indexPath.section];
-       
-       reusableview.lblDate.text = dict[@"date"];
-       
-        return reusableview;
-     }
-    
-       
-    return nil;
-}
 
 
 

@@ -44,8 +44,6 @@ typedef void(^CompletionHandler)(NSData*,NSURLResponse*,NSError*);
 {
    
      DataTaskMock* _dataTaskMock;
-    
-   
 }
 
 

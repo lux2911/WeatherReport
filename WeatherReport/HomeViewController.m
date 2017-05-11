@@ -43,7 +43,7 @@
     self.tableView.rowHeight=UITableViewAutomaticDimension;
     self.tableView.tableHeaderView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 2)];
     self.tableView.tableHeaderView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    self.tableView.tableFooterView=[UIView new];
+   
     
     self.searchBar = [UISearchBar new];
     self.searchBar.showsCancelButton = YES;
@@ -77,7 +77,7 @@
         [self.mapView removeAnnotations:self.mapView.annotations];
         
         [self.tableData removeAllObjects];
-        [self.tableView reloadData];
+        [self reloadTableViewData];
         isDataInvalidated = NO;
     }
 }
@@ -107,14 +107,14 @@
 
             
             
-              [self.tableView reloadData];
+              
             
           }
  
         
     }
     
-    
+    [self reloadTableViewData];
 }
 
 -(void)reloadSavedData
@@ -129,7 +129,7 @@
     else
         [self.tableData removeAllObjects];
     
-    [self.tableView reloadData];
+    [self reloadTableViewData];
 }
 
 -(void)saveData
@@ -142,14 +142,14 @@
 -(void)refreshTableView
 {
     
-    [self.tableView reloadData];
+   [self reloadTableViewData];
     
     if (self.tableView.contentSize.height > self.tableView.frame.size.height)
       [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height - self.tableView.frame.size.height) animated:YES];
 }
 
 
-
+#pragma mark -UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.tableData count];
@@ -175,6 +175,8 @@
     return YES;
 }
 
+
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -188,38 +190,15 @@
         
         [self saveData];
         
-        [self.tableView reloadData];
+        [self reloadTableViewData];
     }
 }
 
+#pragma mark
 
 
--(void)zoomToFitMyLocation {
-    
-   
-    CLLocationCoordinate2D coord;
-    
-    if (dragAnnotation)
-        coord = dragAnnotation.coordinate;
-    else
-        coord = self.mapView.userLocation.coordinate;
-   
-   MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord,1000000,1000000);
-   [self.mapView setRegion:region animated:YES];
-    
-}
 
--(void)locationAuthorization
-{
-    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse)
-        self.mapView.showsUserLocation = YES;
-        else
-        {
-            CLLocationManager* aLocationManager = [CLLocationManager new];
-            [aLocationManager requestWhenInUseAuthorization];
-        }
-}
-
+#pragma mark -MKMapViewDelegate
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
@@ -229,6 +208,139 @@
         userLocationUpdated = YES;
     }
 }
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    if ([annotation isKindOfClass: [MKUserLocation class]])
+        return nil;
+    
+    if ([annotation class] == [MKPointAnnotation class])
+    {
+        
+        MKPinAnnotationView* annView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
+                                                                       reuseIdentifier:@"DragPin"];
+        annView.pinTintColor = [UIColor purpleColor];
+        annView.draggable = YES;
+        annView.animatesDrop = YES;
+        annView.canShowCallout = YES;
+        
+        annView.leftCalloutAccessoryView = [self createLabelForCallout:annView];
+        
+        ((MKPointAnnotation*)annotation).title = @" ";
+        
+        dragAnnotationView = annView;
+        return annView;
+        
+    }
+    else
+        if ([annotation class] == [Place class])
+        {
+            MKPinAnnotationView* annView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
+                                                                           reuseIdentifier:@"PlacePin"];
+            annView.pinTintColor = [UIColor redColor];
+            annView.canShowCallout = YES;
+            
+            annView.leftCalloutAccessoryView = [self createLabelForCallout:annView];
+            annView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            
+            UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onPinTap)];
+            [annView addGestureRecognizer:tap];
+            
+            return annView;
+            
+            
+        }
+    
+    return nil;
+}
+
+
+- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
+{
+    doAddPin = NO;
+}
+
+
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
+{
+    doAddPin = NO;
+    
+    if ([view.annotation class] == [MKPointAnnotation class])
+        view.canShowCallout = NO;
+    
+    [self selectDraggablePin];
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState
+{
+    view.canShowCallout = NO;
+    
+    if (newState == MKAnnotationViewDragStateEnding)
+        [self addAnnotation:view.annotation.coordinate];
+    
+}
+
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray<MKAnnotationView *> *)views
+{
+    [self selectDraggablePin];
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    
+    
+    UINavigationController* nc = [sb instantiateViewControllerWithIdentifier:@"CityNavigationController"];
+    
+    CityViewController* vc = (CityViewController*)[nc topViewController];
+    
+    vc.place = (Place*)view.annotation;
+    
+    [vc downloadData];
+    
+    [self presentViewController:nc animated:YES completion:nil];
+    
+    
+    
+    [self.mapView deselectAnnotation:view.annotation animated:nil];
+    
+    
+}
+
+
+
+#pragma  mark
+
+-(void)zoomToFitMyLocation {
+    
+    
+    CLLocationCoordinate2D coord;
+    
+    if (dragAnnotation)
+        coord = dragAnnotation.coordinate;
+    else
+        coord = self.mapView.userLocation.coordinate;
+    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord,1000000,1000000);
+    [self.mapView setRegion:region animated:YES];
+    
+}
+
+-(void)locationAuthorization
+{
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse)
+        self.mapView.showsUserLocation = YES;
+    else
+    {
+        CLLocationManager* aLocationManager = [CLLocationManager new];
+        [aLocationManager requestWhenInUseAuthorization];
+    }
+}
+
+
 
 - (IBAction)onMapTap:(UITapGestureRecognizer*)sender {
    
@@ -355,50 +467,6 @@
 
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
-{
-    if ([annotation isKindOfClass: [MKUserLocation class]])
-        return nil;
-    
-    if ([annotation class] == [MKPointAnnotation class])
-    {
-    
-        MKPinAnnotationView* annView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
-                                    reuseIdentifier:@"DragPin"];
-        annView.pinTintColor = [UIColor purpleColor];
-        annView.draggable = YES;
-        annView.animatesDrop = YES;
-        annView.canShowCallout = YES;
-        
-        annView.leftCalloutAccessoryView = [self createLabelForCallout:annView];
-        
-        ((MKPointAnnotation*)annotation).title = @" ";
-        
-        dragAnnotationView = annView;
-        return annView;
-    
-    }
-    else
-        if ([annotation class] == [Place class])
-        {
-            MKPinAnnotationView* annView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
-                                                                           reuseIdentifier:@"PlacePin"];
-            annView.pinTintColor = [UIColor redColor];
-            annView.canShowCallout = YES;
-            
-            annView.leftCalloutAccessoryView = [self createLabelForCallout:annView];
-            annView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-            
-            UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onPinTap)];
-            [annView addGestureRecognizer:tap];
-            
-            return annView;
-            
-            
-        }
-    
-    return nil;
-}
 
 -(void)onPinTap
 {
@@ -426,61 +494,6 @@
 
 }
 
-- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
-{
-    doAddPin = NO;
-}
-
-
-
-- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
-{
-    doAddPin = NO;
-    
-    if ([view.annotation class] == [MKPointAnnotation class])
-        view.canShowCallout = NO;
-    
-      [self selectDraggablePin];
-}
-
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState
-{
-    view.canShowCallout = NO;
-    
-    if (newState == MKAnnotationViewDragStateEnding)
-        [self addAnnotation:view.annotation.coordinate];
-    
-}
-
-- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray<MKAnnotationView *> *)views
-{
-    [self selectDraggablePin];
-}
-
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
-{
-    
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    
-    
-    UINavigationController* nc = [sb instantiateViewControllerWithIdentifier:@"CityNavigationController"];
-    
-    CityViewController* vc = (CityViewController*)[nc topViewController];
-    
-    vc.place = (Place*)view.annotation;
-    
-    [vc downloadData];
-    
-    [self presentViewController:nc animated:YES completion:nil];
-    
-    
-    
-    [self.mapView deselectAnnotation:view.annotation animated:nil];
-    
-    
-}
-
 
 
 -(void)selectDraggablePin
@@ -492,7 +505,7 @@
 
 
 
-
+#pragma mark -UISearchBarDelegate
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
@@ -517,7 +530,7 @@
         }];
     
         self.tableData = arr;
-        [self.tableView reloadData];
+       [self reloadTableViewData];
     }
     else
         [self reloadSavedData];
@@ -533,6 +546,8 @@
     [searchBar resignFirstResponder];
    
 }
+
+#pragma mark
 
 -(void)bookmarksDeleted
 {
@@ -570,11 +585,27 @@
 }
 
 
+-(void)reloadTableViewData
+{
+    self.tableView.tableFooterView = [self makeTableFooterView];
+    [self.tableView reloadData];
+}
 
+-(UIView*)makeTableFooterView
+{
+    if ([self.tableData count]>0)
+        return [UIView new];
+    
+    UIView* aView = [[NSBundle mainBundle] loadNibNamed:@"NoBookmarksYet" owner:self options:nil][0];
+    
+    return aView;
+    
+}
 
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
 }
 
 

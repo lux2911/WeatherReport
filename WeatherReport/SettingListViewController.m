@@ -33,6 +33,8 @@
     return YES;
 }
 
+#pragma mark -UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.tableData count];
@@ -67,6 +69,10 @@
      return aCell;
 }
 
+#pragma mark
+
+#pragma mark -UITableViewDelegate
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell* aCell = [tableView cellForRowAtIndexPath:indexPath];
@@ -82,6 +88,8 @@
     UITableViewCell* aCell = [tableView cellForRowAtIndexPath:indexPath];
     aCell.accessoryType = UITableViewCellAccessoryNone;
 }
+
+#pragma mark
 
 -(void)setSelectedTitle:(NSString *)selectedTitle
 {

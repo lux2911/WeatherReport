@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface HomeViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,MKMapViewDelegate,UISearchBarDelegate >
+@interface HomeViewController : UIViewController<UITableViewDataSource,MKMapViewDelegate,UISearchBarDelegate >
 
 
 @end

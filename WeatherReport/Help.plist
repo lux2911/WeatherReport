@@ -3,6 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>html</key>
-	<string>&lt;h1&gt;&quot;Weather&quot; is app that gives you information about weather conditions for next 5 days every 3 hours for any location in the world.&lt;br /&gt;&lt;br /&gt;App modes:&lt;br /&gt;1. pin drop mode - enables user to bookmark locations by tapping&lt;br /&gt;&amp;nbsp; &amp;nbsp; on map&lt;br /&gt;&lt;br /&gt;2. pin drag mode - drag purple pin to location you want to bookmark. Pin is created when you first tap on map&lt;/h1&gt;</string>
+	<string>&lt;h2&gt;&quot;Weather&quot; is app that gives you information about&lt;br /&gt; weather conditions for next 5 days every 3 hours for any location in the world.&lt;/h2&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3&gt;App modes:&lt;br /&gt; 1. pin drop mode - enables user to bookmark locations by tapping&lt;br /&gt; &amp;nbsp; &amp;nbsp; on map (default)&lt;br /&gt; &lt;br /&gt; 2. pin drag mode - drag purple pin to location you want to bookmark.&lt;br /&gt;&amp;nbsp; &amp;nbsp; Pin is created&amp;nbsp;when you first tap on map&lt;br /&gt;&lt;br /&gt;&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;h3&gt;Measure units: metric (default) and imperial&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;h4&gt;App uses&amp;nbsp;&lt;a href=&quot;http://www.openweathermap.org/api &quot;&gt;http://www.openweathermap.org/api &lt;/a&gt;&lt;a href=&quot;http://www.openweathermap.org/api &quot;&gt;&lt;br /&gt;&lt;/a&gt;&lt;br /&gt;App icons downloaded from &lt;a href=&quot;https://www.icons8.com&quot;&gt;https://www.icons8.com&lt;/a&gt;&amp;nbsp;&lt;/h4&gt;</string>
 </dict>
 </plist>

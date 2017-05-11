@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 
-@interface HelpViewController : UIViewController<WKUIDelegate>
+@interface HelpViewController : UIViewController<WKUIDelegate,WKNavigationDelegate>
 
 @end

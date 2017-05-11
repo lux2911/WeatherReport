@@ -28,6 +28,9 @@
 
     
     self.webView = [[WKWebView alloc] initWithFrame:rect configuration:conf];
+    self.webView.backgroundColor = [UIColor clearColor];
+    self.webView.opaque = NO;
+    self.webView.navigationDelegate = self;
     [self.view addSubview:self.webView];
     
     
@@ -76,7 +79,21 @@
 
 }
 
+#pragma -WKNavigationDelegate
 
+-(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
+{
+    if (navigationAction.navigationType == WKNavigationTypeLinkActivated)
+    {
+        [[UIApplication sharedApplication] openURL:navigationAction.request.URL];
+        
+        decisionHandler(WKNavigationActionPolicyCancel);
+    }
+    else
+        decisionHandler(WKNavigationActionPolicyAllow);
+}
+
+#pragma mark
 
 
 @end

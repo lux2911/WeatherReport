@@ -57,6 +57,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+#pragma mark -UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -90,7 +91,62 @@
 }
 
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    NSDictionary* dict = self.tableData[indexPath.section];
+    
+    NSString* aKey = dict[kKey];
+    NSArray* arr = dict[kContent];
+    NSString* aTitle = dict[kTitle];
+    NSNumber* isButton = dict[kIsButton];
+    
+    NSString* reuseIdentifier = nil;
+    
+    if ([isButton boolValue])
+        reuseIdentifier = @"SettingsButtonCell";
+    else
+        reuseIdentifier = @"SettingsCell";
+    
+    UITableViewCell* aCell = [self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    
+    
+    if ([reuseIdentifier isEqualToString:@"SettingsButtonCell"])
+    {
+        SettingsButtonTableViewCell * btnCell = (SettingsButtonTableViewCell*)aCell;
+        [btnCell.btnSetting setTitle:aTitle forState:UIControlStateNormal];
+        [btnCell.btnSetting setTitle:aTitle forState:UIControlStateSelected];
+        [btnCell.btnSetting addTarget:self action:NSSelectorFromString(aKey) forControlEvents:UIControlEventTouchDown];
+        
+    }
+    else
+    {
+        
+        aCell.textLabel.text = aTitle;
+        
+        if (aKey)
+        {
+            if ([self.settingsValues[aKey] length]>0)
+                aCell.detailTextLabel.text = self.settingsValues[aKey];
+            else
+                if ([arr count]>0)
+                    aCell.detailTextLabel.text = arr[0];
+        }
+        else
+            if ([arr count]>0)
+                aCell.detailTextLabel.text = arr[0];
+        
+    }
+    
+    return aCell;
+    
+}
 
+
+#pragma mark
+
+
+#pragma mark -UITableViewDelegate
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     NSDictionary* dict = self.tableData[section];
@@ -126,59 +182,6 @@
 }
 
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    NSDictionary* dict = self.tableData[indexPath.section];
-    
-    NSString* aKey = dict[kKey];
-    NSArray* arr = dict[kContent];
-    NSString* aTitle = dict[kTitle];
-    NSNumber* isButton = dict[kIsButton];
-    
-    NSString* reuseIdentifier = nil;
-    
-    if ([isButton boolValue])
-     reuseIdentifier = @"SettingsButtonCell";
-    else
-     reuseIdentifier = @"SettingsCell";
-    
-     UITableViewCell* aCell = [self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    
-    
-    if ([reuseIdentifier isEqualToString:@"SettingsButtonCell"])
-    {
-        SettingsButtonTableViewCell * btnCell = (SettingsButtonTableViewCell*)aCell;
-        [btnCell.btnSetting setTitle:aTitle forState:UIControlStateNormal];
-        [btnCell.btnSetting setTitle:aTitle forState:UIControlStateSelected];
-        [btnCell.btnSetting addTarget:self action:NSSelectorFromString(aKey) forControlEvents:UIControlEventTouchDown];
-        
-    }
-    else
-    {
-    
-        aCell.textLabel.text = aTitle;
-        
-        if (aKey)
-        {
-            if ([self.settingsValues[aKey] length]>0)
-                aCell.detailTextLabel.text = self.settingsValues[aKey];
-            else
-                if ([arr count]>0)
-                    aCell.detailTextLabel.text = arr[0];
-        }
-        else
-            if ([arr count]>0)
-                aCell.detailTextLabel.text = arr[0];
-    
-    }
-    
-    return aCell;
-    
-}
-
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell* aCell = [tableView cellForRowAtIndexPath:indexPath];
@@ -208,10 +211,13 @@
         
         [nc pushViewController:vc animated:YES];
         
-       
+        
         
     }
 }
+
+#pragma mark
+
 
 -(void)clear_bookmarks
 {
@@ -258,6 +264,12 @@
     [[Settings instance] saveSettings:self.settingsValues];
     [self.tableView reloadData];
 }
+
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    [self.tableView reloadData];
+}
+
 
 
 @end

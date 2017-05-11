@@ -22,7 +22,8 @@
 		<false/>
 		<key>footer</key>
 		<string>You can choose between two modes:
-- drag pin mode - after first touch on map , purple pin is created which you then drag to create bookmarks
+- drag pin mode - after first touch on map, purple pin is created
+  which you then drag to create bookmarks
 - drop pin mode - bookmarks are created by tapping on map</string>
 		<key>title</key>
 		<string>Pin mode</string>
