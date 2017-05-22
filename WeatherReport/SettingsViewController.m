@@ -267,7 +267,12 @@
 
 -(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
-    [self.tableView reloadData];
+   
+      [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    
+       [self.tableView reloadData];
+    
+   
 }
 
 
