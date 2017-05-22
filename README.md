@@ -1,6 +1,6 @@
 # WeatherReport
 
-"Weather" is app that gives you information about
+"Weather Report" is app that gives you information about
 weather conditions for next 5 days every 3 hours for any location in the world.
 
  
